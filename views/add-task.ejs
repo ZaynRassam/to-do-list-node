@@ -1,0 +1,27 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="content">
+        <h2>Add a Task!</h2>
+        <form class="form" action="/" method="POST">
+            <label for="title">Task:</label>
+            <input type="text" name="title" id="title">
+            <label for="description">Description:</label>
+            <textarea type="text" name="description" id="description"></textarea>
+
+            <div class="priority">
+                <p>Priority:</p>
+                <label for="priority-low">low</label>
+                <input type="radio" name="priority" id="priority-low" value="low" required>
+                <label for="priority-medium">Medium</label>
+                <input type="radio" name="priority" id="priority-medium" value="medium">
+                <label for="priority-high">HIGH</label>
+                <input type="radio" name="priority" id="priority-high" value="high" required>
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>

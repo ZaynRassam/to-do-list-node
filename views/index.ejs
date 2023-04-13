@@ -1,0 +1,62 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="tasks content">  
+        <div class="task-display">
+                <h2 class="all-tasks">All Tasks</h2>     
+            <!-- <h2 class="to-do-tasks">To Do Tasks</h2>     
+            <h2 class="completed-tasks">Completed Tasks</h2>      -->
+        </div>
+        <!-- <h3>To Do:</h3> -->
+        <% if (tasks.length > 0) { %>
+            <% tasks.forEach(task => { %>
+                <div class="task-container">
+                    <div class="task-content">
+                        <div class="priority">
+                            <% if (task.priority == "low") {%>
+                                <h1 class="priority-low">!</h1>
+                            <% } else if (task.priority == "medium"){%>
+                                <h1 class="priority-medium">!!</h1>
+                            <% } else {%>
+                                <h1 class="priority-high">!!!</h1>
+                            <%}%>
+                        </div>
+                        <div class="task">
+                            <h3><%= task.title%></h3>
+                            <p><%= task.description%></p>
+                        </div>
+                    </div>
+                    <div class="task-button">
+                        <button class="complete-task">Complete</button>
+                        <button data-doc="<%=task._id%>" class="delete-task">Delete</button>
+                    </div>
+                </div>
+            <%}) %>
+        <%} else {%>
+            <br>
+            <p>You have no outstanding tasks, please create one!</p>
+        <% } %>
+
+        <!-- <h3>Completed:</h3> -->
+    </div>
+
+    <%- include('./partials/footer') %>
+
+
+    <script>
+        const deleteTask = document.querySelector(".delete-task")
+        deleteTask.addEventListener("click", (e) => {
+            const endpoint = `/${deleteTask.dataset.doc}`;
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch((err) => console.log(err));
+        });
+    </script>
+
+</body>
+</html>

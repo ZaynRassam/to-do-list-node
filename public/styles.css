@@ -1,0 +1,145 @@
+body {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+p, h1, h2, h3, a, ul {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #222;
+    list-style: none;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+}
+
+.header nav {
+    display: flex;
+    gap: 3rem;
+    font-size: larger;
+}
+
+.header nav a:hover {
+    color: crimson;
+    /* text-decoration: underline currentColor 1px; */
+    transform: scale(1.1);
+}
+
+/* CONTENT */
+.content {
+    padding: 2rem;
+}
+
+
+
+/* INDEX */
+.task-container {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
+
+.task-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.priority {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+}
+
+.priority label {
+    padding-left: 1rem;
+}
+
+.priority-low {
+    color: green;
+}
+.priority-medium {
+    color: orange;
+}
+.priority-high {
+    color: red;
+}
+
+.task-container button {
+    justify-content: flex-end;
+}
+
+/* ABOUT */
+.about-page {
+    padding-top: 2rem;
+}
+
+/* ADD TASK */
+.content .form {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content .form input[type=text],
+.content .form textarea[type=text] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: width 0.4s ease-in-out;
+    resize: none;
+}
+
+.content .form input[type=text]:focus,
+.content .form textarea[type=text]:focus {
+    width: 60%;
+    border: 3px solid #555;
+}
+
+.content .form textarea[type=text]:focus{
+    height: 6rem;
+}
+
+
+.content .form .priority .radio {
+    padding-left: 2rem;
+}
+
+.content .form label,
+.content .form div p,
+.content .form button {
+    margin-top: 1rem;
+}
+
+/* FOOTER */
+.footer {
+    margin: 1rem;
+    text-align: center;
+}
