@@ -30,6 +30,10 @@ p, h1, h2, h3, a, ul {
     font-size: larger;
 }
 
+.header nav a {
+    transition: 0.2s ease-in-out;
+}
+
 .header nav a:hover {
     color: crimson;
     /* text-decoration: underline currentColor 1px; */
@@ -90,8 +94,10 @@ p, h1, h2, h3, a, ul {
     color: red;
 }
 
-.task-container button {
+.task-button {
+    display: flex;
     justify-content: flex-end;
+    gap:1rem;
 }
 
 /* ABOUT */
@@ -135,8 +141,35 @@ p, h1, h2, h3, a, ul {
     margin-top: 1rem;
 }
 
+
 /* FOOTER */
 .footer {
     margin: 1rem;
     text-align: center;
+}
+
+
+
+
+.button {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
 }

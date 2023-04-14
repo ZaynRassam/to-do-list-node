@@ -1,4 +1,4 @@
-<% if (tasks) { %>
+<% if (tasks.length > 0) { %>
     <% tasks.forEach(task => { %>
         <% if (task.completed == completedBool) {%>
             <div class="task-container">
@@ -20,11 +20,11 @@
                 </div>
                 <div class="task-button">
                     <% if (task.completed) {%>
-                        <button data-doc="<%=task._id%>" class="uncomplete-task">Uncomplete</button>
+                        <button data-doc="<%=task._id%>" class="uncomplete-task button">Uncomplete</button>
                     <%} else {%>
-                        <button data-doc="<%=task._id%>" class="complete-task">Complete</button>
+                        <button data-doc="<%=task._id%>" class="complete-task button">Complete</button>
                     <% }%>
-                    <button data-doc="<%=task._id%>" class="delete-task">Delete</button>
+                    <button data-doc="<%=task._id%>" class="delete-task button">Delete</button>
                 </div>
             </div>
         <% }%>
