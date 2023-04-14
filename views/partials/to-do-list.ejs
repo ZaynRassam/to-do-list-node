@@ -1,0 +1,34 @@
+<% if (tasks.length > 0) { %>
+    <% tasks.forEach(task => { %>
+        <% if (task.completed == completedBool) {%>
+            <div class="task-container">
+                <div class="task-content">
+                    <div class="priority">
+                        <% if (task.priority == "low") {%>
+                            <h1 class="priority-low">!</h1>
+                        <% } else if (task.priority == "medium"){%>
+                            <h1 class="priority-medium">!!</h1>
+                        <% } else {%>
+                            <h1 class="priority-high">!!!</h1>
+                        <%}%>
+                    </div>
+                    <div class="task">
+                        <h3><%= task.title%></h3>
+                        <p><%= task.description%></p>
+                    </div>
+                </div>
+                <div class="task-button">
+                    <% if (task.completed) {%>
+                        <button data-doc="<%=task._id%>" class="uncomplete-task">Uncomplete</button>
+                    <%} else {%>
+                        <button data-doc="<%=task._id%>" class="complete-task">Complete</button>
+                    <% }%>
+                    <button data-doc="<%=task._id%>" class="delete-task">Delete</button>
+                </div>
+            </div>
+        <% }%>
+    <%}) %>
+<%} else {%>
+    <br>
+    <p>Nothing to show!</p>
+<% } %>

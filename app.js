@@ -25,18 +25,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}))  //crucial for webpage forms POST!
 app.use(express.static('public'))
 app.use(morgan("dev"));
+app.use(express.json())
 
 
 
-app.get('/', (req, res) => {
-    Task.find()
-        .then(result => {
-            res.render('index', {title: "Home", tasks: result})
-        })
-        .catch(err => {
-            console.log(err);
-        });
-});
+
+
 
 app.get('/about', (req, res) => {
     Task.find()
@@ -57,6 +51,30 @@ app.get('/add-task', (req, res) => {
             console.log(err);
         });
 });
+
+
+app.put('/complete/:id', (req, res) => {
+    const id = req.params.id;
+    Task.findByIdAndUpdate(id, {completed: true})
+        .then((result)=>{
+            res.json({ redirect: '/'});
+        })
+        .catch(err => {
+            console.log(err)
+        })
+});
+
+app.put('/uncomplete/:id', (req, res) => {
+    const id = req.params.id;
+    Task.findByIdAndUpdate(id, {completed: false})
+        .then((result)=>{
+            res.json({ redirect: '/'});
+        })
+        .catch(err => {
+            console.log(err)
+        })
+});
+
 
 app.post('/', (req, res) => {
     const task = new Task(req.body);
@@ -84,7 +102,15 @@ app.delete('/:id', (req, res) => {
         })
 });
 
-
+app.get('/', (req, res) => {
+    Task.find()
+        .then(result => {
+            res.render('index', {title: "Home", tasks: result})
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
 
 
 app.use((req, res) => {

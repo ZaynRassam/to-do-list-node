@@ -1,5 +1,5 @@
 body {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 0 20px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -49,16 +49,19 @@ p, h1, h2, h3, a, ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .task-content {
     display: flex;
     gap: 1rem;
+    width: 80%;
 }
 
 .task {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    flex-direction: column;
 }
 
 .task-display {
@@ -70,7 +73,6 @@ p, h1, h2, h3, a, ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1rem;
 }
 
 .priority label {
