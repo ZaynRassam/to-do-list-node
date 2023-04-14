@@ -73,6 +73,7 @@ p, h1, h2, h3, a, ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 1rem;
 }
 
 .priority label {
@@ -112,8 +113,7 @@ p, h1, h2, h3, a, ul {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    outline: 1px solid #ccc;
     box-sizing: border-box;
     transition: width 0.4s ease-in-out;
     resize: none;
@@ -122,15 +122,10 @@ p, h1, h2, h3, a, ul {
 .content .form input[type=text]:focus,
 .content .form textarea[type=text]:focus {
     width: 60%;
-    border: 3px solid #555;
+    outline: 3px solid #555;
 }
 
-.content .form textarea[type=text]:focus{
-    height: 6rem;
-}
-
-
-.content .form .priority .radio {
+.content .form .priority-radio .radio {
     padding-left: 2rem;
 }
 

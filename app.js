@@ -104,6 +104,7 @@ app.delete('/:id', (req, res) => {
 
 app.get('/', (req, res) => {
     Task.find()
+        .sort({createdAt: -1})
         .then(result => {
             res.render('index', {title: "Home", tasks: result})
         })
